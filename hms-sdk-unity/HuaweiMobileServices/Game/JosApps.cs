@@ -12,10 +12,7 @@
 
         public static IJosAppsClient GetJosAppsClient()
         {
-            var josAppsClient = sJavaClass.CallStatic<AndroidJavaObject>(
-                    "getJosAppsClient",
-                    AndroidContext.ActivityContext
-                );
+            var josAppsClient = sJavaClass.CallStatic<AndroidJavaObject>("getJosAppsClient", AndroidContext.ActivityContext);
             return new JosAppsClientWrapper(josAppsClient);
         }
 
@@ -23,6 +20,12 @@
         {
             var productClient = sJavaClass.CallStatic<AndroidJavaObject>("getProductClient", AndroidContext.ApplicationContext);
             return new ProductClientWrapper(productClient);
+        }
+
+        public static IAppUpdateClient GetAppUpdateClient()
+        {
+            var appUpdateClient = sJavaClass.CallStatic<AndroidJavaObject>("getAppUpdateClient", AndroidContext.ApplicationContext);
+            return new AppUpdateClientWrapper(appUpdateClient);
         }
     }
 
