@@ -13,8 +13,9 @@
 
         public AndroidJavaObject Intent => JavaObject;
 
-        public int GetIntExtra<T>(string name) => Call<int>("getIntExtra", name, 1);
-        public bool GetHasExtra<T>(string name) => Call<bool>("hasExtra", name);
+        public int GetIntExtra(string name) => Call<int>("getIntExtra", name, 1);
+        public bool GetHasExtra(string name) => Call<bool>("hasExtra", name);
+        public string GetStringExtra(string name) => CallAsString("getStringExtra", name);
         public AndroidBundle GetParcelableExtra<T>(string name) => CallAsWrapper<AndroidBundle>("getParcelableExtra", name);
 
 
